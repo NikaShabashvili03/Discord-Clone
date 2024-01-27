@@ -99,18 +99,18 @@ export async function POST(
       });
   
       // Update all connections with new conversation
-      newConversation.users.map((user) => {
+      newConversation.users.map(async (user) => {
         if (user.id) {
-          pusherServer.trigger(user.id, 'conversation:new', newConversation);
+          await pusherServer.trigger(user.id, 'conversation:new', newConversation);
         }
       });
   
 
-      pusherServer.trigger(user.id, 'friend:new', {
+      await pusherServer.trigger(user.id, 'friend:new', {
         friend: currentUser,
       })
 
-      pusherServer.trigger(currentUser.id, 'friend:new', {
+      await pusherServer.trigger(currentUser.id, 'friend:new', {
         friend: user,
       })
 

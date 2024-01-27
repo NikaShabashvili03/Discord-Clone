@@ -80,7 +80,7 @@ export async function POST(
     });
 
     // Update all connections with new seen
-    pusherServer.trigger(currentUser.email, 'conversation:update', {
+    await pusherServer.trigger(currentUser.email, 'conversation:update', {
       id: conversationId,
       messages: [updatedMessage]
     });
@@ -91,7 +91,7 @@ export async function POST(
     }
 
     // Update last message seen
-    pusherServer.trigger(conversationId!, 'message:update', updatedMessage);
+    await pusherServer.trigger(conversationId!, 'message:update', updatedMessage);
 
     return new NextResponse('Success');
   } catch (error) {

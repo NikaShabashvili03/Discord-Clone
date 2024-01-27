@@ -57,11 +57,11 @@ export async function POST(
     });
 
 
-    pusherServer.trigger(conversationId, 'messages:new', newMessage)
+    await pusherServer.trigger(conversationId, 'messages:new', newMessage)
     const lastMessage = updatedConversation.messages[updatedConversation.messages.length - 1];
 
-    updatedConversation.users.map((user) => {
-      pusherServer.trigger(user.id!, 'conversation:update', {
+    updatedConversation.users.map(async (user) => {
+      await pusherServer.trigger(user.id!, 'conversation:update', {
         id: conversationId,
         messages: [lastMessage]
       });

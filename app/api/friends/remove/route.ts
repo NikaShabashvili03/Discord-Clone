@@ -55,11 +55,11 @@ export async function POST(
       })
 
 
-      pusherServer.trigger(user.id, 'friend:delete', {
+      await pusherServer.trigger(user.id, 'friend:delete', {
         friend: currentUser,
       })
 
-      pusherServer.trigger(currentUser.id, 'friend:delete', {
+      await pusherServer.trigger(currentUser.id, 'friend:delete', {
         friend: user,
       })
 

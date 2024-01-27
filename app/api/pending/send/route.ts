@@ -77,7 +77,7 @@ export async function POST(
         }
       })
 
-      pusherServer.trigger(user.id, 'pending:new', {
+      await pusherServer.trigger(user.id, 'pending:new', {
         from: currentUser,
       })
 

@@ -45,9 +45,9 @@ export async function POST(
       });
 
        // Update all connections with new conversation
-      newConversation.users.forEach((user) => {
+      newConversation.users.forEach(async (user) => {
         if (user.id) {
-          pusherServer.trigger(user.id, 'conversation:new', newConversation);
+          await pusherServer.trigger(user.id, 'conversation:new', newConversation);
         }
       });
 
@@ -96,9 +96,9 @@ export async function POST(
     });
 
     // Update all connections with new conversation
-    newConversation.users.map((user) => {
+    newConversation.users.map(async (user) => {
       if (user.email) {
-        pusherServer.trigger(user.email, 'conversation:new', newConversation);
+        await pusherServer.trigger(user.email, 'conversation:new', newConversation);
       }
     });
 
