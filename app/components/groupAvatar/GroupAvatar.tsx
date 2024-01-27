@@ -1,12 +1,10 @@
 'use client';
 
-import { User } from "@prisma/client";
 import clsx from "clsx";
-import Image from "next/image";
 import GroupMapped from "./GroupMapped";
 
 interface AvatarGroupProps {
-  users?: User[];
+  users?: any;
   small?: boolean
 };
 
@@ -27,7 +25,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
       "relative h-11 w-11",
       small && "w-10 h-10"
     )}>
-      {slicedUsers.map((user, index) => {
+      {slicedUsers.map((user: any, index: any) => {
         return <GroupMapped small={small} index={index} positionMap={positionMap} user={user} key={index}/>
       })}
     </div>
