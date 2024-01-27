@@ -40,7 +40,7 @@ export default function Online({
                   <FilterOnline onlines={onlines} currentUser={currentUser} setOnline={setOnline} key={i} length={onlines?.length} online={online}/>
               ).reverse()
          ) : (
-            <Image src={'/images/nooneonline.png'} alt='No Pending' className='w-full object-cover h-auto' width={100} height={100}/>
+            <Image src={'/images/nooneonline.png'} alt='No Pending' className='w-full object-cover' width={1000} height={1000}/>
           )}
       </div>
     </div>
