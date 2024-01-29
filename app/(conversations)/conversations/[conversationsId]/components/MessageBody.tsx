@@ -78,7 +78,7 @@ export default function MessageBody({
  }
 
  useEffect(() => {
-  pusherClient.subscribe(currentUser.id);
+  pusherClient.subscribe(conversationId);
   let id = (Math.random() + 1).toString(36).substring(2);
 
   const messageHandler = (body: any) => {
