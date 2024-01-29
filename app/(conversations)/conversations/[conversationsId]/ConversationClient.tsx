@@ -1,18 +1,12 @@
 'use client'
 import React, { useState } from 'react'
-import getCurrentUser from '@/app/actions/getCurrentUser';
-import { redirect } from 'next/navigation';
-import ClientOnly from '@/app/components/ClientOnly';
-import getConversationById from '@/app/actions/getConversationById';
 import Sidebar from '@/app/components/Sidebar';
-import getConversations from '@/app/actions/getConversations';
 import Header from '@/app/components/structure/Header';
 import Body from '@/app/components/structure/Body';
 import RightBar from '@/app/components/structure/RightBar';
 import MessageBody from './components/MessageBody';
 import MessageForm from './components/MessageForm';
 import MessageHead from './components/MessageHead';
-import getMessages from '@/app/actions/getMessages';
 import SidebarGroupSettings from './components/SidebarGroupSettings';
 import SidebarSettings from './components/SidebarSettings';
 import { SafeConversations, SafeUser } from '@/app/types';
